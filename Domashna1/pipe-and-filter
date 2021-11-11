@@ -1,0 +1,4 @@
+osmfilter mapOhrid.osm --keep="tourism=attraction tourism=museum" | osmconvert64-0.8.8p - --all-to-nodes --csv="@id @lat @lon name" --csv-headline --csv-separator="," -o="Atrakcii_Ohrid.csv"
+osmfilter mapSkopje.osm --keep="tourism=attraction tourism=museum" | osmconvert64-0.8.8p - --all-to-nodes --csv="@id @lat @lon name" --csv-headline --csv-separator="," -o="Atrakcii_Skopje.csv"
+Со извршување на овие две команди во Command Prompt, со помош на osmfilter и osmconverter ќе се направи филтрирање на податоците од мапите на Охрид и Скопје
+и ќе се прикажат сите туристички атракции и музеи во нов csv file.
