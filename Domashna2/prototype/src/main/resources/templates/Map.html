@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Мапа - What To Visit MK</title>
+    <style>
+        body{
+            background-color: beige;
+        }
+        .sidenav {
+            width: 150px;
+            position: fixed;
+            z-index: 1;
+            top: 20px;
+            left: 10px;
+            overflow-x: hidden;
+            padding: 8px 0;
+            background-color: beige;
+            text-align: center;
+            font-size: 18px;
+        }
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            margin: 10px;
+            background-color: #86C3A6;
+            border-radius: 5px;
+            height: 20px;
+            color: black;
+        }
+
+        .sidenav a:hover {
+            color: #487D91;
+        }
+
+        .main {
+            margin-left: 300px; /* Same width as the sidebar + left position in px */
+            font-size: 28px; /* Increased text to enable scrolling */
+            padding-right: 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+    </style>
+    <script type="text/javascript">
+        function mapaSkopje()
+        {
+            document.getElementById("imeGrad").innerHTML="Скопје";
+            mapa=document.getElementById("mapa");
+            mapa.innerHTML="<iframe width=\"1200\" height=\"350\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://www.openstreetmap.org/export/embed.html?bbox=21.049804687500004%2C41.8429275884508%2C21.692504882812504%2C42.177614054538324&amp;layer=mapnik&amp;marker=42.01049094173177%2C21.37115478515625\" style=\"border: 1px solid black\"></iframe><br/><small><a href=\"https://www.openstreetmap.org/?mlat=42.0105&amp;mlon=21.3712#map=11/42.0105/21.3712\">View Larger Map</a></small>";
+        }
+        function mapaOhrid()
+        {
+            document.getElementById("imeGrad").innerHTML="Охрид";
+            mapa=document.getElementById("mapa");
+            mapa.innerHTML="<iframe width='1200' height='350' frameBorder='0' scrolling='no' marginHeight='0' marginWidth='0' src='https://www.openstreetmap.org/export/embed.html?bbox=20.48812866210938%2C40.89073094422098%2C21.13082885742188%2C41.230368176096256&amp;layer=mapnik&amp;marker=41.060768795281696%2C20.809478759765625' style='border: 1px solid black'></iframe> <br/>  <small><a href='https://www.openstreetmap.org/?mlat=41.0608&amp;mlon=20.8095#map=11/41.0608/20.8095'>View Larger Map</a></small>";
+        }
+    </script>
+</head>
+<body>
+<div class="sidenav">
+<!--    <a href="Homepage.html" target="_self">Homepage</a>-->
+<!--    <a href="Map.html" target="_self">Map</a>-->
+<!--    <a href="Attractions.html" target="_self">Attractions</a>-->
+<!--    <a href="AboutUs.html" target="_self">About Us</a>-->
+    <a href="Homepage" target="_self">Дома</a>
+    <a href="Map" target="_self">Мапа</a>
+    <a href="Attractions" target="_self">Атракции</a>
+    <a href="AboutUs" target="_self">За нас</a>
+</div>
+<div class="main">
+    <p style="text-align: right"> тука лого </p>
+    <div>
+        <input type="button" value="Скопје" onclick="mapaSkopje()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none">
+        <input type="button" value="Охрид" onclick="mapaOhrid()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none">
+    </div>
+    <h2 style="text-align: center">Најпопуларни атракции во <span id="imeGrad"></span></h2>
+    <div id="mapa" style="width:100%;height:400px;"></div>
+
+</div>
+</body>
+</html>
