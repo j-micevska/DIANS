@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Мапа - What To Visit MK</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+    <style>
+        body{
+            background-color: beige;
+        }
+        .sidenav {
+            width: 150px;
+            position: fixed;
+            z-index: 1;
+            top: 20px;
+            left: 10px;
+            overflow-x: hidden;
+            padding: 8px 0;
+            background-color: beige;
+            text-align: center;
+            font-size: 18px;
+        }
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            margin: 10px;
+            background-color: #86C3A6;
+            border-radius: 5px;
+            height: 20px;
+            color: black;
+        }
+
+        .sidenav a:hover {
+            color: #487D91;
+        }
+
+        .main {
+            margin-left: 300px; /* Same width as the sidebar + left position in px */
+            font-size: 28px; /* Increased text to enable scrolling */
+            padding-right: 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+    </style>
+    <script th:inline="javascript" type="text/javascript">
+        function mapaSkopje()
+        {
+            document.getElementById("imeGrad").innerHTML="Скопје";
+            map=document.getElementById("map");
+            //map.innerHTML="<iframe width=\"1200\" height=\"350\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://www.openstreetmap.org/export/embed.html?bbox=21.049804687500004%2C41.8429275884508%2C21.692504882812504%2C42.177614054538324&amp;layer=mapnik&amp;marker=42.01049094173177%2C21.37115478515625\" style=\"border: 1px solid black\"></iframe><br/><small><a href=\"https://www.openstreetmap.org/?mlat=42.0105&amp;mlon=21.3712#map=11/42.0105/21.3712\">View Larger Map</a></small>";
+
+            var map = L.map('map').setView([41.9957, 21.4359], 10);
+
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            var attractionsSk=[[${attractionsSkopje}]]
+
+            for (var a=0;a<attractionsSk.length;a++){
+                console.log(attractionsSk[a]);
+                var marker = L.marker([attractionsSk[a].lat, attractionsSk[a].lon]).addTo(map);
+                marker.bindPopup(attractionsSk[a].name).openPopup();
+            }
+
+        }
+        function mapaOhrid()
+        {
+            document.getElementById("imeGrad").innerHTML="Охрид";
+            map=document.getElementById("map");
+
+            var map = L.map('map').setView([41.1123, 20.8095], 10);
+
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            var attractionsOh=[[${attractionsOhrid}]]
+
+            for (var a=0;a<attractionsOh.length;a++){
+                var marker = L.marker([attractionsOh[a].lat, attractionsOh[a].lon]).addTo(map);
+                marker.bindPopup(attractionsOh[a].name).openPopup();
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<div class="sidenav">
+    <a href="Homepage" target="_self">Дома</a>
+    <a href="Map" target="_self">Мапа</a>
+    <a href="Attractions" target="_self">Атракции</a>
+    <a href="AboutUs" target="_self">За нас</a>
+</div>
+<div class="main">
+    <p style="text-align: right"> тука лого </p>
+    <div>
+        <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+        <input type="button" value="Скопје" onclick="mapaSkopje()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none">
+        <input type="button" value="Охрид" onclick="mapaOhrid()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none">
+    </div>
+    <h2 style="text-align: center">Најпопуларни атракции во <span id="imeGrad"></span></h2>
+    <div id="map" style="width:100%;height:400px;"></div>
+
+</div>
+
+</body>
+</html>
