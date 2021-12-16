@@ -55,12 +55,16 @@
     <script th:inline="javascript" type="text/javascript">
         function mapaSkopje()
         {
+
             document.getElementById("imeGrad").innerHTML="Скопје";
-            map=document.getElementById("map");
+           // map=document.getElementById("map");
             //map.innerHTML="<iframe width=\"1200\" height=\"350\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://www.openstreetmap.org/export/embed.html?bbox=21.049804687500004%2C41.8429275884508%2C21.692504882812504%2C42.177614054538324&amp;layer=mapnik&amp;marker=42.01049094173177%2C21.37115478515625\" style=\"border: 1px solid black\"></iframe><br/><small><a href=\"https://www.openstreetmap.org/?mlat=42.0105&amp;mlon=21.3712#map=11/42.0105/21.3712\">View Larger Map</a></small>";
-
+            var container = L.DomUtil.get('map');
+            if(container != null){
+                container._leaflet_id = null;
+            }
             var map = L.map('map').setView([41.9957, 21.4359], 10);
-
+            console.log("map")
             L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
@@ -77,10 +81,13 @@
         function mapaOhrid()
         {
             document.getElementById("imeGrad").innerHTML="Охрид";
-            map=document.getElementById("map");
-
-            var map = L.map('map').setView([41.1123, 20.8095], 10);
-
+           // map=document.getElementById("map");
+            var container = L.DomUtil.get('map');
+            if(container != null){
+                container._leaflet_id = null;
+            }
+            var map= L.map('map').setView([41.1123, 20.8095], 10);
+            console.log("map")
             L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);

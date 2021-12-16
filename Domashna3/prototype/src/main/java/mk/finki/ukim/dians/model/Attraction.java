@@ -14,13 +14,15 @@ public class Attraction {
     String lon;
     String name;
     String description;
-    String photo;
+    String review;
+    String image;
 
-    public Attraction(String lat, String lon, String name, String description,String photo) {
+    public Attraction(String lat, String lon, String name, String description,String review,String image) {
         this.lat = lat;
         this.lon = lon;
         this.name = name;
         this.description = description;
-        this.photo=photo;
+        this.image=image;
+        this.review=review;
     }
 }

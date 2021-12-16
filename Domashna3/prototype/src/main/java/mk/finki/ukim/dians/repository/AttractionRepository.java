@@ -48,15 +48,15 @@ public class AttractionRepository{
     public void deleteByNameOhrid(String name) {
         DataHolder.attractionsOhrid.removeIf(i -> i.getName().equals(name));
     }
-    public Optional<Attraction> saveSkopje(String lat, String lon, String name, String description,String photo) {
+    public Optional<Attraction> saveSkopje(String lat, String lon, String name, String description,String review,String image) {
         DataHolder.attractionsSkopje.removeIf(i -> i.getName().equals(name));
-        Attraction attraction = new Attraction(lat,lon,name,description,photo);
+        Attraction attraction = new Attraction(lat,lon,name,description,review,image);
         DataHolder.attractionsSkopje.add(attraction);
         return Optional.of(attraction);
     }
-    public Optional<Attraction> saveOhrid(String lat, String lon, String name, String description,String photo) {
+    public Optional<Attraction> saveOhrid(String lat, String lon, String name, String description,String review,String image) {
         DataHolder.attractionsOhrid.removeIf(i -> i.getName().equals(name));
-        Attraction attraction = new Attraction(lat,lon,name,description,photo);
+        Attraction attraction = new Attraction(lat,lon,name,description,review,image);
         DataHolder.attractionsOhrid.add(attraction);
         return Optional.of(attraction);
     }

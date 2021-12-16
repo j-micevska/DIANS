@@ -45,12 +45,12 @@ public class AttractionServiceImpl implements AttractionService {
     }
 
     @Override
-    public Optional<Attraction> saveSkopje(String lat, String lon, String name, String description,String photo) {
-        return attractionRepository.saveSkopje(lat, lon, name, description,photo);
+    public Optional<Attraction> saveSkopje(String lat, String lon, String name, String description,String review,String image) {
+        return attractionRepository.saveSkopje(lat, lon, name, description,review,image);
     }
     @Override
-    public Optional<Attraction> saveOhrid(String lat, String lon, String name, String description,String photo) {
-        return attractionRepository.saveOhrid(lat, lon, name, description,photo);
+    public Optional<Attraction> saveOhrid(String lat, String lon, String name, String description,String review,String image) {
+        return attractionRepository.saveOhrid(lat, lon, name, description,review,image);
     }
 
     @Override

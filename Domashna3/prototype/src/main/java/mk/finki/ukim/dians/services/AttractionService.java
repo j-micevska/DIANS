@@ -17,8 +17,8 @@ public interface AttractionService {
     Optional<Attraction> findByNameSkopje(String name);
     Optional<Attraction> findByNameOhrid(String name);
 
-    Optional<Attraction> saveSkopje(String lat, String lon, String name, String description,String photo);
-    Optional<Attraction> saveOhrid(String lat, String lon, String name, String description,String photo);
+    Optional<Attraction> saveSkopje(String lat, String lon, String name, String description,String review,String image);
+    Optional<Attraction> saveOhrid(String lat, String lon, String name, String description,String review,String image);
 
    // Optional<TouristAttraction> save(ProductDto productDto);
 

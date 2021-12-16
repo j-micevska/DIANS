@@ -31,7 +31,7 @@ public class DataHolder {
         String[] tmp1;
         while ((tmp1 = reader1.readNext()) != null){
             String[] elements1 = Arrays.toString(tmp1).split(";");
-            Attraction a=new Attraction(elements1[0],elements1[1], elements1[2],elements1[3],elements1[4]);
+            Attraction a=new Attraction(elements1[0],elements1[1], elements1[2],elements1[3],elements1[4],elements1[5],elements1[6]);
             attractionsSkopje.add(a);
 
         }
@@ -41,7 +41,7 @@ public class DataHolder {
         String[] tmp;
         while ((tmp = reader.readNext()) != null){
             String[] elements = Arrays.toString(tmp).split(";");
-            Attraction a=new Attraction(elements[0],elements[1], elements[2],elements[3],elements[4],elements[5]);
+            Attraction a=new Attraction(elements[0],elements[1], elements[2],elements[3],elements[4],elements[5],elements[6]);
             attractionsOhrid.add(a);
 
         }
