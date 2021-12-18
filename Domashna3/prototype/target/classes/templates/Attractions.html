@@ -66,10 +66,13 @@
 
         .zapis{
             border-radius: 5px;
+            border-style: solid;
+            border-color: #72AC9F;
             height: fit-content;
             margin: 20px;
             padding: 10px;
             background-color:white;
+            list-style-type: none;
         }
 
     </style>
@@ -85,7 +88,8 @@
                     console.log(name)
                     var desc = attractions[a].description;
                     var img=attractions[a].image;
-                    atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc +"</br></br>"+ "<img style='width: 200px; height: 200px' src="+img+">"+"</li>";
+                    atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc + "</br></br><img style='width: 200px; height: 200px' src="+img+">"+"</li>";
+
                 }
             }
             function atrakciiOhrid() {
@@ -98,7 +102,15 @@
                     console.log(name)
                     var desc = attractions[a].description;
                     var img=attractions[a].image;
-                    atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc +"</br></br>"+ "<img style='width: 200px; height: 200px' src="+img+">"+"</li>";
+                    // atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc +"</br></br>";
+                    if(img!=="]")
+                    {
+                        atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc +"</br></br>"+ "<img style='width: 200px; height: 200px;' src="+img+">"+"</li>";
+                    }
+                    else
+                    {
+                        atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc +"</br></br>";
+                    }
                 }
             }
         </script>
