@@ -46,6 +46,27 @@
             .sidenav a {font-size: 18px;}
         }
     </style>
+    <script type="text/javascript">
+        function Send()
+        {
+            ime=document.getElementById("name");
+            prezime=document.getElementById("surname");
+            komentar=document.getElementById("comment");
+            mail=document.getElementById("email");
+            if(ime.value.length>0 && prezime.value.length>0 && komentar.value.length>0 && mail.value.length>0)
+            {
+                alert("Вашиот коментар е испратен. Ви Благодариме!");
+                ime.value="";
+                prezime.value="";
+                komentar.value="";
+                mail.value="";
+            }
+            else
+            {
+                alert("Ве молиме внесете ги сите податоци за да можете да испратите коментар");
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="sidenav">
@@ -69,7 +90,7 @@
     </div>
     <div><textarea id="comment" style="width: 840px; margin: 10px; border: none" placeholder="Коментар..." rows="4"></textarea></div>
     <div><input type="text" id="email" style="width: 750px; margin: 10px; height: 20px; border: none" placeholder="example@email.com">
-         <input type="button" value="Испрати!" style="background-color: #86C3A6; border-radius: 5px; border:none; width: 60px; height: 20px">
+         <input type="button" value="Испрати!" onclick="Send()" style="background-color: #86C3A6; border-radius: 5px; border:none; width: 60px; height: 20px">
     </div>
 </div>
 </body>
