@@ -82,7 +82,73 @@
                 marker.bindPopup(attractionsSk[a].name).openPopup();
             }
 
+            document.getElementById("imeGrad").innerHTML+=" <div>"+
+                " <span>From</span>" +
+                "<select id=\"izbor_from\"> </select> <br/>" +
+                "<span>To</span> <select id=\"izbor_to\"> </select> <br/> "+
+                "<button onClick=\"routeSkopje()\">Покажи рута</button> </div>"
 
+            console.log(attractionsSk)
+
+            var sel1 = document.getElementById("izbor_from");
+            var attrs1 = [[${attractionsSkopje}]];
+            for (var a = 0; a < attrs1.length; a++) {
+                var option1 = document.createElement("option");
+                option1.innerHTML = attrs1[a].name;
+                sel1.add(option1);
+            }
+
+            var sel2 = document.getElementById("izbor_to");
+            var attrs2 = [[${attractionsSkopje}]];
+            for (var a = 0; a < attrs2.length; a++) {
+                var option2 = document.createElement("option");
+                option2.innerHTML = attrs2[a].name;
+                sel2.add(option2);
+            }
+
+        }
+
+        function routeSkopje(){
+            var container = L.DomUtil.get('map');
+            if(container != null){
+                container._leaflet_id = null;
+            }
+            var map = L.map('map').setView([41.9957, 21.4359], 10);
+            console.log("map")
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            var x = document.getElementById("izbor_from");
+            var sel_from = x.options[x.selectedIndex].innerHTML;
+
+            var y = document.getElementById("izbor_to");
+            var sel_to = y.options[y.selectedIndex].innerHTML;
+
+            var attrs3 = [[${attractionsSkopje}]];
+            for(var a = 0; a < attrs3.length; a++){
+                if(sel_from == attrs3[a].name){
+                    var lat_fr = attrs3[a].lat;
+                    var lon_fr = attrs3[a].lon;
+                    break;
+                }
+            }
+
+            var attrs3 = [[${attractionsSkopje}]];
+            for(var a = 0; a < attrs3.length; a++){
+                if(sel_to == attrs3[a].name){
+                    var lat_to = attrs3[a].lat;
+                    var lon_to = attrs3[a].lon;
+                    break;
+                }
+            }
+
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(lat_fr, lon_fr),
+                    L.latLng(lat_to, lon_to)
+                ]
+            }).addTo(map);
         }
         function mapaOhrid()
         {
@@ -105,6 +171,12 @@
                 marker.bindPopup(attractionsOh[a].name).openPopup();
             }
 
+            document.getElementById("imeGrad").innerHTML+=" <div>"+
+               " <span>From</span>" +
+               "<select id=\"izbor_from\"> </select> <br/>" +
+                "<span>To</span> <select id=\"izbor_to\"> </select> <br/> "+
+               "<button onClick=\"routeOhrid()\">Покажи рута</button> </div>"
+
             var sel1 = document.getElementById("izbor_from");
             var attrs1 = [[${attractionsOhrid}]];
             for (var a = 0; a < attrs1.length; a++) {
@@ -120,6 +192,20 @@
                 option2.innerHTML = attrs2[a].name;
                 sel2.add(option2);
             }
+
+        }
+
+        function routeOhrid(){
+
+            var container = L.DomUtil.get('map');
+            if(container != null){
+                container._leaflet_id = null;
+            }
+            var map= L.map('map').setView([41.1123, 20.8095], 10);
+            console.log("map")
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
 
                 var x = document.getElementById("izbor_from");
                 var sel_from = x.options[x.selectedIndex].innerHTML;
@@ -152,9 +238,7 @@
                     ]
                 }).addTo(map);
 
-
         }
-
     </script>
 </head>
 <body>
@@ -174,17 +258,17 @@
     <h2 style="text-align: center">Најпопуларни атракции во <span id="imeGrad"></span></h2>
     <div id="map" style="width:100%;height:400px;"></div>
     <br/>
-    <div>
-        <span>From</span>
-        <select id="izbor_from">
-        </select>
-        <br/>
-        <span>To</span>
-        <select id="izbor_to">
-        </select>
-        <br/>
-        <button onclick="mapaOhrid()">Покажи рута</button>
-    </div>
+<!--    <div>-->
+<!--        <span>From</span>-->
+<!--        <select id="izbor_from">-->
+<!--        </select>-->
+<!--        <br/>-->
+<!--        <span>To</span>-->
+<!--        <select id="izbor_to">-->
+<!--        </select>-->
+<!--        <br/>-->
+<!--        <button onclick="mapaOhrid()">Покажи рута</button>-->
+<!--    </div>-->
 
 
 </div>
