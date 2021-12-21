@@ -36,11 +36,12 @@
         }
 
         .main {
+            position: relative;
             margin-left: 300px; /* Same width as the sidebar + left position in px */
             font-size: 28px; /* Increased text to enable scrolling */
-            padding-right: 10px;
+            padding-top: 0px;
+            padding-right: 20px;
         }
-
         @media screen and (max-height: 450px) {
             .sidenav {padding-top: 15px;}
             .sidenav a {font-size: 18px;}
@@ -49,7 +50,10 @@
             float: left;
             width: 45%;
             padding: 5px;
+
+            position: relative;
         }
+        .column img {width: 100%}
 
         /* Clearfix (clear floats) */
         .row::after {
@@ -57,6 +61,59 @@
             clear: both;
             display: table;
         }
+        .tekst {
+            padding-top: 50px;
+            padding-right: 90px;
+        }
+
+        /* Hover for images */
+
+        .opis_Ohrid {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            /* Sho/hide */
+            visibility: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .column:hover .opis_Ohrid {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .opis_Skopje {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            /* Sho/hide */
+            visibility: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .column:hover .opis_Skopje {
+            visibility: visible;
+            opacity: 1;
+        }
+        a:link { text-decoration: none; color: black}
+
+
+        a:visited { text-decoration: none; color: black}
+
+
+        a:hover { text-decoration: none; color: seagreen}
+
+
+        a:active { text-decoration: none; color: black }
+
     </style>
 </head>
 <body>
@@ -71,17 +128,25 @@
     <a href="AboutUs" target="_self">За нас</a>
 </div>
 <div class="main">
-    <p style="text-align: right"> <img src="https://content.screencast.com/users/snestoroska/folders/Default/media/0df6b973-054c-4eab-ad53-2c419a74b030/logo-no%20background.png" alt="лого" width="100px" height="100px" style="margin: 20px;"></p>
+    <p style="text-align: right"> <img src="https://content.screencast.com/users/snestoroska/folders/Default/media/0df6b973-054c-4eab-ad53-2c419a74b030/logo-no%20background.png" class="logo" alt="лого" width="100px" height="100px" style="margin: 20px; position:absolute; top: 0px; right: 0px;"> </p>
+    <div class="tekst">
+    <p style="padding-left: 450px"> Добредојдовте! </p>
+    <p style="text-align: justify"> Доколку планирате авантура во Охрид или Скопје, Whattovisit.mk е тука да ви помогне! Изберете кој град сакате да го посетите и разгледајте ги најпопуларните атракции кои вредат да се посетат. Откако ќе најдете нешто што ви фаќа око, искористете ја мапата и навигациската алатка да видете како да стигнете таму и започнете ја вашата авантура! <br>
+       Започнете со разгледување на <a href="Map" target="_self" style="text-decoration: none"> мапата </a>
+    </p>
+    </div>
     <div class="row">
-        <div class="column">
+        <div class="column" >
             <img src="https://cdn.getyourguide.com/img/location/5df35ecb415d0.jpeg/88.jpg" alt="Skopje" style="width:100%">
+           <a href="Attractions" target="_self"> <div class="opis_Skopje"> Атракции во Скопје </div></a>
+
         </div>
         <div class="column">
             <img src="https://cdn.getyourguide.com/img/location/5e1713dd21336.jpeg/88.jpg" alt="Ohrid" style="width:100%">
+            <a href="Attractions" target="_self"> <div class="opis_Ohrid"> Атракции во Охрид </div> </a>
         </div>
+
     </div>
-    <p style="padding-left: 450px"> Добредојдовте! </p>
-    <p> </p>
 </div>
 </body>
 </html>

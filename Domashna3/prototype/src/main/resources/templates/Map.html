@@ -62,7 +62,7 @@
         {
 
             document.getElementById("imeGrad").innerHTML="Скопје";
-           // map=document.getElementById("map");
+            // map=document.getElementById("map");
             //map.innerHTML="<iframe width=\"1200\" height=\"350\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://www.openstreetmap.org/export/embed.html?bbox=21.049804687500004%2C41.8429275884508%2C21.692504882812504%2C42.177614054538324&amp;layer=mapnik&amp;marker=42.01049094173177%2C21.37115478515625\" style=\"border: 1px solid black\"></iframe><br/><small><a href=\"https://www.openstreetmap.org/?mlat=42.0105&amp;mlon=21.3712#map=11/42.0105/21.3712\">View Larger Map</a></small>";
             var container = L.DomUtil.get('map');
             if(container != null){
@@ -82,10 +82,10 @@
                 marker.bindPopup(attractionsSk[a].name).openPopup();
             }
 
-            document.getElementById("imeGrad").innerHTML+=" <div>"+
-                " <span>From</span>" +
+            document.getElementById("proben").innerHTML=" <div>"+
+                " <span>Од </span>" +
                 "<select id=\"izbor_from\"> </select> <br/>" +
-                "<span>To</span> <select id=\"izbor_to\"> </select> <br/> "+
+                "<span>До </span> <select id=\"izbor_to\"> </select> <br/> "+
                 "<button onClick=\"routeSkopje()\">Покажи рута</button> </div>"
 
             console.log(attractionsSk)
@@ -153,7 +153,7 @@
         function mapaOhrid()
         {
             document.getElementById("imeGrad").innerHTML="Охрид";
-           // map=document.getElementById("map");
+            // map=document.getElementById("map");
             var container = L.DomUtil.get('map');
             if(container != null){
                 container._leaflet_id = null;
@@ -171,11 +171,11 @@
                 marker.bindPopup(attractionsOh[a].name).openPopup();
             }
 
-            document.getElementById("imeGrad").innerHTML+=" <div>"+
-               " <span>From</span>" +
-               "<select id=\"izbor_from\"> </select> <br/>" +
-                "<span>To</span> <select id=\"izbor_to\"> </select> <br/> "+
-               "<button onClick=\"routeOhrid()\">Покажи рута</button> </div>"
+            document.getElementById("proben").innerHTML=" <div>"+
+                " <span>Од </span>" +
+                "<select id=\"izbor_from\"> </select> <br/>" +
+                "<span>До </span> <select id=\"izbor_to\"> </select> <br/> "+
+                "<button onClick=\"routeOhrid()\">Покажи рута</button> </div>"
 
             var sel1 = document.getElementById("izbor_from");
             var attrs1 = [[${attractionsOhrid}]];
@@ -207,36 +207,36 @@
                 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
 
-                var x = document.getElementById("izbor_from");
-                var sel_from = x.options[x.selectedIndex].innerHTML;
+            var x = document.getElementById("izbor_from");
+            var sel_from = x.options[x.selectedIndex].innerHTML;
 
-                var y = document.getElementById("izbor_to");
-                var sel_to = y.options[y.selectedIndex].innerHTML;
+            var y = document.getElementById("izbor_to");
+            var sel_to = y.options[y.selectedIndex].innerHTML;
 
-                var attrs3 = [[${attractionsOhrid}]];
-                for(var a = 0; a < attrs3.length; a++){
-                    if(sel_from == attrs3[a].name){
-                        var lat_fr = attrs3[a].lat;
-                        var lon_fr = attrs3[a].lon;
-                        break;
-                    }
+            var attrs3 = [[${attractionsOhrid}]];
+            for(var a = 0; a < attrs3.length; a++){
+                if(sel_from == attrs3[a].name){
+                    var lat_fr = attrs3[a].lat;
+                    var lon_fr = attrs3[a].lon;
+                    break;
                 }
+            }
 
-                var attrs3 = [[${attractionsOhrid}]];
-                for(var a = 0; a < attrs3.length; a++){
-                    if(sel_to == attrs3[a].name){
-                        var lat_to = attrs3[a].lat;
-                        var lon_to = attrs3[a].lon;
-                        break;
-                    }
+            var attrs3 = [[${attractionsOhrid}]];
+            for(var a = 0; a < attrs3.length; a++){
+                if(sel_to == attrs3[a].name){
+                    var lat_to = attrs3[a].lat;
+                    var lon_to = attrs3[a].lon;
+                    break;
                 }
+            }
 
-                L.Routing.control({
-                    waypoints: [
-                        L.latLng(lat_fr, lon_fr),
-                        L.latLng(lat_to, lon_to)
-                    ]
-                }).addTo(map);
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(lat_fr, lon_fr),
+                    L.latLng(lat_to, lon_to)
+                ]
+            }).addTo(map);
 
         }
     </script>
@@ -248,27 +248,31 @@
     <a href="Attractions" target="_self">Атракции</a>
     <a href="AboutUs" target="_self">За нас</a>
 </div>
-<div class="main">
-    <p style="text-align: right"> <img src="https://content.screencast.com/users/snestoroska/folders/Default/media/0df6b973-054c-4eab-ad53-2c419a74b030/logo-no%20background.png" alt="лого" width="100px" height="100px" style="margin: 20px;"> </p>
-    <div>
+<div class="main" style="position: relative">
+    <p style="text-align: right"> <img src="https://content.screencast.com/users/snestoroska/folders/Default/media/0df6b973-054c-4eab-ad53-2c419a74b030/logo-no%20background.png" class="logo" alt="лого" width="100px" height="100px" style="margin: 20px; position:absolute; top: 0px; right: 0px;"> </p>
+    <h2 style="text-align: center; padding-top: 80px" >Најпопуларни атракции во <span id="imeGrad"></span></h2>
+    <div style=" margin: 0; position: absolute; padding-top: 0px; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
         <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
-        <input type="button" value="Скопје" onclick="mapaSkopje()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none">
-        <input type="button" value="Охрид" onclick="mapaOhrid()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none">
+        <input type="button" value="Скопје" onclick="mapaSkopje()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none; ">
+        <input type="button" value="Охрид" onclick="mapaOhrid()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none; ">
     </div>
-    <h2 style="text-align: center">Најпопуларни атракции во <span id="imeGrad"></span></h2>
+    <div id="proben" style="padding-top: 30px; text-align: center">
+    </div>
+<br>
+
     <div id="map" style="width:100%;height:400px;"></div>
     <br/>
-<!--    <div>-->
-<!--        <span>From</span>-->
-<!--        <select id="izbor_from">-->
-<!--        </select>-->
-<!--        <br/>-->
-<!--        <span>To</span>-->
-<!--        <select id="izbor_to">-->
-<!--        </select>-->
-<!--        <br/>-->
-<!--        <button onclick="mapaOhrid()">Покажи рута</button>-->
-<!--    </div>-->
+    <!--    <div>-->
+    <!--        <span>From</span>-->
+    <!--        <select id="izbor_from">-->
+    <!--        </select>-->
+    <!--        <br/>-->
+    <!--        <span>To</span>-->
+    <!--        <select id="izbor_to">-->
+    <!--        </select>-->
+    <!--        <br/>-->
+    <!--        <button onclick="mapaOhrid()">Покажи рута</button>-->
+    <!--    </div>-->
 
 
 </div>

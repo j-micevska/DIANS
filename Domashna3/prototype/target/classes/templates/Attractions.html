@@ -40,6 +40,8 @@
             margin-left: 300px; /* Same width as the sidebar + left position in px */
             font-size: 28px; /* Increased text to enable scrolling */
             padding-right: 10px;
+
+            position: relative;
         }
 
         @media screen and (max-height: 450px) {
@@ -73,6 +75,17 @@
             padding: 10px;
             background-color:white;
             list-style-type: none;
+        }
+        .grad {
+            background-color: #86C3A6;
+            width: 150px; height: 30px;
+            border-radius: 5px;
+            margin: 10px;
+            font-size: 18px;
+            border:none;
+        }
+        .grad:hover {
+            color: #487D91;
         }
 
     </style>
@@ -123,12 +136,13 @@
     <a href="AboutUs" target="_self">За нас</a>
 </div>
 <div class="main">
-    <p style="text-align: right"> <img src="https://content.screencast.com/users/snestoroska/folders/Default/media/0df6b973-054c-4eab-ad53-2c419a74b030/logo-no%20background.png" alt="лого" width="100px" height="100px" style="margin: 20px;"> </p>
-    <div>
-        <input type="button" value="Скопје" onclick="atrakciiSkopje()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none">
-        <input type="button" value="Охрид" onclick="atrakciiOhrid()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none">
+    <p style="text-align: right"> <img src="https://content.screencast.com/users/snestoroska/folders/Default/media/0df6b973-054c-4eab-ad53-2c419a74b030/logo-no%20background.png" class="logo" alt="лого" width="100px" height="100px" style="margin: 20px; position:absolute; top: 0px; right: 0px;"> </p>
+    <h2 style="text-align: center; padding-top: 80px">Листа на најпопуларни атракции <span id="imeGrad"></span></h2>
+    <div style="text-align: center">
+        <input type="button" value="Скопје" onclick="atrakciiSkopje()" class="grad" >
+        <input type="button" value="Охрид" onclick="atrakciiOhrid()" class="grad">
     </div>
-    <h2 style="text-align: center">Листа на најпопуларни атракции <span id="imeGrad"></span></h2>
+
     <div id="lista_atr" class="row">
         <div class="column">
            <ul id="atr">
