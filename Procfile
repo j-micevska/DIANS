@@ -1,1 +1,1 @@
-web: java -jar target/Dians-1.0.jar
+web: java -Dserver.port=9092 -jar target/Dians-0.0.1-SNAPSHOT.jar
