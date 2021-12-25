@@ -77,56 +77,64 @@
             list-style-type: none;
         }
         .grad {
-            background-color: #86C3A6;
-            width: 150px; height: 30px;
-            border-radius: 5px;
-            margin: 10px;
+            /*background-color: #86C3A6;*/
+            /*width: 150px; height: 30px;*/
+            /*border-radius: 5px;*/
+            /*margin: 10px;*/
             font-size: 18px;
-            border:none;
+            /*border:none;*/
+            text-decoration: none;
+            /*padding: 6px 8px 6px 16px;*/
+            /*font-size: 18px;*/
+            display: block;
+            background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none;
         }
         .grad:hover {
             color: #487D91;
         }
 
     </style>
-        <script th:inline="javascript" type="text/javascript">
-            function atrakciiSkopje()
-            {
-                document.getElementById("imeGrad").innerHTML="во Скопје";
-                atrakcii=document.getElementById("atr");
-                atrakcii.innerHTML="";
-                var attractions=[[${attractionsSkopje}]]
-                for (var a = 0; a < attractions.length; a++) {
-                    var name = attractions[a].name;
-                    console.log(name)
-                    var desc = attractions[a].description;
-                    var img=attractions[a].image;
-                    atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc + "</br></br><img style='width: 200px; height: 200px' src="+img+">"+"</li>";
+<!--        <script th:inline="javascript" type="text/javascript">-->
+<!--            function atrakciiSkopje()-->
+<!--            {-->
+<!--                document.getElementById("imeGrad").innerHTML="во Скопје";-->
+<!--                search=document.getElementById("search");-->
+<!--                atrakcii=document.getElementById("atr");-->
+<!--                atrakcii.innerHTML="";-->
+<!--                var attractions=[[${attractionsSkopje}]]-->
+<!--                for (var a = 0; a < attractions.length; a++) {-->
+<!--                    var name = attractions[a].name;-->
+<!--                    console.log(name)-->
+<!--                    var desc = attractions[a].description;-->
+<!--                    var img=attractions[a].image;-->
+<!--                    atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc + "</br></br><img style='width: 200px; height: 200px' src="+img+">"+"</li>";-->
 
-                }
-            }
-            function atrakciiOhrid() {
-                document.getElementById("imeGrad").innerHTML = "во Охрид";
-                atrakcii = document.getElementById("atr");
-                atrakcii.innerHTML="";
-                var attractions = [[${attractionsOhrid}]]
-                for (var a = 0; a < attractions.length; a++) {
-                    var name = attractions[a].name;
-                    console.log(name)
-                    var desc = attractions[a].description;
-                    var img=attractions[a].image;
-                    // atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc +"</br></br>";
-                    if(img!=="]")
-                    {
-                        atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc +"</br></br>"+ "<img style='width: 200px; height: 200px;' src="+img+">"+"</li>";
-                    }
-                    else
-                    {
-                        atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc +"</br></br>";
-                    }
-                }
-            }
-        </script>
+<!--                }-->
+<!--            }-->
+<!--            function atrakciiOhrid() {-->
+<!--                document.getElementById("imeGrad").innerHTML = "во Охрид";-->
+<!--                atrakcii = document.getElementById("atr");-->
+<!--                -->
+<!--                atrakcii.innerHTML="";-->
+<!--                var attractions = [[${attractionsOhrid}]]-->
+<!--                for (var a = 0; a < attractions.length; a++) {-->
+<!--                    var name = attractions[a].name;-->
+<!--                    console.log(name)-->
+<!--                    var desc = attractions[a].description;-->
+<!--                    var img=attractions[a].image;-->
+<!--                    // atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc +"</br></br>";-->
+<!--                    if(img!=="]")-->
+<!--                    {-->
+<!--                        atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc +"</br></br>"+ "<img style='width: 200px; height: 200px;' src="+img+">"+"</li>";-->
+<!--                    }-->
+<!--                    else-->
+<!--                    {-->
+<!--                        atrakcii.innerHTML +="<li class='zapis'>"+"<strong>" + name+"</strong></br></br>"+ desc +"</br></br>";-->
+<!--                    }-->
+<!--                }-->
+<!--                -->
+<!--            }-->
+<!--        </script>-->
 </head>
 <body>
 <div class="sidenav">
@@ -139,31 +147,9 @@
     <p style="text-align: right"> <img src="https://content.screencast.com/users/snestoroska/folders/Default/media/0df6b973-054c-4eab-ad53-2c419a74b030/logo-no%20background.png" class="logo" alt="лого" width="100px" height="100px" style="margin: 20px; position:absolute; top: 0px; right: 0px;"> </p>
     <h2 style="text-align: center; padding-top: 80px">Листа на најпопуларни атракции <span id="imeGrad"></span></h2>
     <div style="text-align: center">
-        <input type="button" value="Скопје" onclick="atrakciiSkopje()" class="grad" >
-        <input type="button" value="Охрид" onclick="atrakciiOhrid()" class="grad">
+        <a href="AttractionsSkopje" target="_self" class="grad" >Скопје</a>
+        <a href="AttractionsOhrid" target="_self" class="grad">Охрид</a>
     </div>
-
-    <div id="lista_atr" class="row">
-        <div class="column">
-           <ul id="atr">
-<!--                <li style="background-color: transparent; list-style-type: none;"><h3>во Скопје</h3></li>
-               <li class="zapis"  th:each="attraction: ${attractionsSkopje}">
-                   <strong><th:block th:text="${attraction.getName()}"></th:block></br></br></strong>
-                   <th:block th:text="${attraction.getDescription()}"></th:block></br></br>
-                </li> -->
-            </ul>
-        </div>
-        <div class="column">
-<!--            <ul>-->
-<!--                <li style="background-color: transparent; list-style-type: none"><h3>во Охрид</h3></li>-->
-<!--                <li class="zapis"  th:each="attraction: ${attractionsOhrid}">-->
-<!--                    <strong><th:block th:text="${attraction.getName()}"> </th:block></br></br></strong>-->
-<!--                    <th:block th:text="${attraction.getDescription()}"></th:block></br></br>-->
-<!--                </li>-->
-<!--            </ul>-->
-        </div>
-    </div>
-
 </div>
 </body>
 </html>

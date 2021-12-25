@@ -14,8 +14,8 @@ public interface AttractionService {
     Optional<Attraction> findByIdSkopje(String id);
     Optional<Attraction> findByIdOhrid(String id);
 
-    Optional<Attraction> findByNameSkopje(String name);
-    Optional<Attraction> findByNameOhrid(String name);
+    List<Attraction> findByNameSkopje(String name);
+    List<Attraction> findByNameOhrid(String name);
 
     Optional<Attraction> saveSkopje(String lat, String lon, String name, String description,String review,String image);
     Optional<Attraction> saveOhrid(String lat, String lon, String name, String description,String review,String image);

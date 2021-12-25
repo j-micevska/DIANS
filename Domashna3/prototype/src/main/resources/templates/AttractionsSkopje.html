@@ -1,0 +1,151 @@
+<html xmlns:th="http://www.w3.org/1999/html" lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <title>Атракции - What To Visit MK</title>
+    <style>
+        body {
+            background-color: beige;
+        }
+
+        .sidenav {
+            width: 150px;
+            position: fixed;
+            z-index: 1;
+            top: 20px;
+            left: 10px;
+            overflow-x: hidden;
+            padding: 8px 0;
+            background-color: beige;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            margin: 10px;
+            background-color: #86C3A6;
+            border-radius: 5px;
+            height: 20px;
+            color: black;
+        }
+
+        .sidenav a:hover {
+            color: #487D91;
+        }
+
+        .main {
+            margin-left: 300px; /* Same width as the sidebar + left position in px */
+            font-size: 28px; /* Increased text to enable scrolling */
+            padding-right: 10px;
+
+            position: relative;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        #lista_atr{
+            font-size: 14px;
+            font-family: Arial;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        /* .column {
+           flex: 50%;
+       } */
+
+        .zapis{
+            border-radius: 5px;
+            border-style: solid;
+            border-color: #72AC9F;
+            height: fit-content;
+            margin: 20px;
+            padding: 10px;
+            background-color:white;
+            list-style-type: none;
+        }
+        .grad {
+            background-color: #86C3A6;
+            width: 150px; height: 30px;
+            border-radius: 5px;
+            margin: 10px;
+            font-size: 18px;
+            border:none;
+        }
+        .grad:hover {
+            color: #487D91;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="sidenav">
+    <a href="Homepage" target="_self">Дома</a>
+    <a href="Map" target="_self">Мапа</a>
+    <a href="Attractions" target="_self">Атракции</a>
+    <a href="AboutUs" target="_self">За нас</a>
+</div>
+<div class="main">
+    <p style="text-align: right"> <img src="https://content.screencast.com/users/snestoroska/folders/Default/media/0df6b973-054c-4eab-ad53-2c419a74b030/logo-no%20background.png" class="logo" alt="лого" width="100px" height="100px" style="margin: 20px; position:absolute; top: 0px; right: 0px;"> </p>
+    <h2 style="text-align: center; padding-top: 80px">Листа на најпопуларни атракции во Скопје <span id="imeGrad"></span></h2>
+
+
+    <div id="lista_atr" class="row">
+        <div class="column">
+
+            <div id="search">
+                <form action="" method="post">
+                    <label>Search: </label>
+                    <input type="text" th:name="searchSkopje">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
+            <ul id="atr">
+                <th:block>
+                    <tr th:each="attraction : ${attractionsSkopje}">
+                        <li class='zapis'><strong th:text="${attraction.name}"></strong></br></br>
+                            <p th:text="${attraction.description}"></p>
+                            <th:block th:if="${attraction.image!=']'}">
+                                <img style='width: 200px; height: 200px;' th:src="${attraction.image}">
+                            </th:block>
+                            </br></br>
+                        </li>
+                    </tr>
+                </th:block>
+            </ul>
+
+            <div id="found">
+                <th:block th:if="${foundSkopje!=null}">
+                    <tr th:each="attraction : ${foundSkopje}">
+                        <li class='zapis'><strong th:text="${attraction.name}"></strong></br></br>
+                            <p th:text="${attraction.description}"></p>
+                            <th:block th:if="${attraction.image!=']'}">
+                                <img style='width: 200px; height: 200px;' th:src="${attraction.image}">
+                            </th:block>
+                            </br></br>
+                        </li>
+                    </tr>
+                </th:block>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

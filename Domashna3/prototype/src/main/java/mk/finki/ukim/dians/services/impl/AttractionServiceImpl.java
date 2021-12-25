@@ -36,11 +36,11 @@ public class AttractionServiceImpl implements AttractionService {
     }
 
     @Override
-    public Optional<Attraction> findByNameSkopje(String name) {
+    public List<Attraction> findByNameSkopje(String name) {
         return attractionRepository.findByNameSkopje(name);
     }
     @Override
-    public Optional<Attraction> findByNameOhrid(String name) {
+    public List<Attraction> findByNameOhrid(String name) {
         return attractionRepository.findByNameOhrid(name);
     }
 

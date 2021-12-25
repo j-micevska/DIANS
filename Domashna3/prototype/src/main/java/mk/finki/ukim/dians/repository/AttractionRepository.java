@@ -5,7 +5,9 @@ import mk.finki.ukim.dians.model.Attraction;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Repository
 public class AttractionRepository{
@@ -26,11 +28,12 @@ public class AttractionRepository{
         return DataHolder.attractionsOhrid.stream().filter(i -> i.getId().equals(id)).findFirst();
     }
 
-    public Optional<Attraction> findByNameSkopje(String name) {
-        return DataHolder.attractionsSkopje.stream().filter(i -> i.getName().equals(name)).findFirst();
+    public List<Attraction> findByNameSkopje(String name) {
+        return DataHolder.attractionsSkopje.stream().filter(i -> i.getName().toLowerCase().contains(name.toLowerCase())).collect(Collectors.toList());
     }
-    public Optional<Attraction> findByNameOhrid(String name) {
-        return DataHolder.attractionsOhrid.stream().filter(i -> i.getName().equals(name)).findFirst();
+
+    public List<Attraction> findByNameOhrid(String name) {
+        return DataHolder.attractionsOhrid.stream().filter(i -> i.getName().toLowerCase().contains(name.toLowerCase())).collect(Collectors.toList());
     }
 
     public void deleteByIdSkopje(String id) {
