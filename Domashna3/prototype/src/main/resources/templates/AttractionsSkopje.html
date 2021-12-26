@@ -3,62 +3,18 @@
     <meta charset="UTF-8">
     <title>Атракции - What To Visit MK</title>
     <style>
-        body {
+        body{
             background-color: beige;
+            font-family: "Times New Roman";
         }
-
-        /*.sidenav {*/
-        /*    width: 150px;*/
-        /*    position: fixed;*/
-        /*    z-index: 1;*/
-        /*    top: 20px;*/
-        /*    left: 10px;*/
-        /*    overflow-x: hidden;*/
-        /*    padding: 8px 0;*/
-        /*    background-color: beige;*/
-        /*    text-align: center;*/
-        /*    font-size: 18px;*/
-        /*}*/
-
-        /*.sidenav a {*/
-        /*    padding: 6px 8px 6px 16px;*/
-        /*    text-decoration: none;*/
-        /*    font-size: 18px;*/
-        /*    display: block;*/
-        /*    margin: 10px;*/
-        /*    background-color: #86C3A6;*/
-        /*    border-radius: 5px;*/
-        /*    height: 20px;*/
-        /*    color: black;*/
-        /*}*/
-
-        /*.sidenav a:hover {*/
-        /*    color: #487D91;*/
-        /*}*/
-
-        /*.main {*/
-        /*    margin-left: 300px; !* Same width as the sidebar + left position in px *!*/
-        /*    font-size: 28px; !* Increased text to enable scrolling *!*/
-        /*    padding-right: 10px;*/
-
-        /*    position: relative;*/
-        /*}*/
-
-        /*@media screen and (max-height: 450px) {*/
-        /*    .sidenav {*/
-        /*        padding-top: 15px;*/
-        /*    }*/
-
-        /*    .sidenav a {*/
-        /*        font-size: 18px;*/
-        /*    }*/
-        /*}*/
-
 
         .sidenav {
             background-color: #86C3A6;
             height: 100px;
             font-size: 25px;
+            top: 0;
+            left: 0;
+            width: 100%;
         }
 
         .sidenav a{
@@ -77,16 +33,11 @@
         }
 
         .main {
-            margin-left: 300px; /* Same width as the sidebar + left position in px */
-            font-size: 28px; /* Increased text to enable scrolling */
-            padding-right: 10px;
+            position: relative;
+            margin-left: 80px;
+            margin-right: 80px;
+            font-size: 28px;
         }
-
-        @media screen and (max-height: 450px) {
-            .sidenav {padding-top: 15px;}
-            .sidenav a {font-size: 25px;}
-        }
-
 
         .dropbtn {
             background-color: #86C3A6;
@@ -130,6 +81,8 @@
             width: 200px;
         }
 
+        a:hover { text-decoration: none; color: darkgreen}
+
         #lista_atr{
             font-size: 14px;
             font-family: Arial;
@@ -138,10 +91,6 @@
         .row {
             display: flex;
         }
-
-        /* .column {
-           flex: 50%;
-       } */
 
         .zapis{
             border-radius: 5px;
@@ -153,18 +102,6 @@
             background-color:white;
             list-style-type: none;
         }
-        .grad {
-            background-color: #86C3A6;
-            width: 150px; height: 30px;
-            border-radius: 5px;
-            margin: 10px;
-            font-size: 18px;
-            border:none;
-        }
-        .grad:hover {
-            color: #487D91;
-        }
-
     </style>
 
 </head>
@@ -174,7 +111,7 @@
     <a href="/AboutUs" target="_self" class="menu">За нас</a>
     <a href="/Map" target="_self" class="menu">Мапа</a>
     <div class="dropdown menu">
-        <button class="dropbtn">Атракции</button>
+        <button class="dropbtn menu" style="font-family: 'Times New Roman'">Атракции</button>
         <div class="dropdown-content">
             <a href="/AttractionsSkopje">Скопје</a>
             <a href="/AttractionsOhrid">Охрид</a>
@@ -190,11 +127,11 @@
     <div id="lista_atr" class="row">
         <div class="column">
 
-            <div id="search">
+            <div style="margin-left: 100px" id="search">
                 <form action="" method="post">
                     <label>Search: </label>
-                    <input type="text" th:name="searchSkopje">
-                    <button type="submit">Search</button>
+                    <input style="width: 30%; height: 30px" type="text" th:name="searchSkopje">
+                    <button style="height: 30px" type="submit">Search</button>
                 </form>
             </div>
 

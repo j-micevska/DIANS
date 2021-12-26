@@ -16,35 +16,16 @@
     <style>
         body{
             background-color: beige;
+            font-family: "Times New Roman";
         }
-        /*.sidenav {*/
-        /*    width: 150px;*/
-        /*    position: fixed;*/
-        /*    z-index: 1;*/
-        /*    top: 20px;*/
-        /*    left: 10px;*/
-        /*    overflow-x: hidden;*/
-        /*    padding: 8px 0;*/
-        /*    background-color: beige;*/
-        /*    text-align: center;*/
-        /*    font-size: 18px;*/
-        /*}*/
-        /*.sidenav a {*/
-        /*    padding: 6px 8px 6px 16px;*/
-        /*    text-decoration: none;*/
-        /*    font-size: 18px;*/
-        /*    display: block;*/
-        /*    margin: 10px;*/
-        /*    background-color: #86C3A6;*/
-        /*    border-radius: 5px;*/
-        /*    height: 20px;*/
-        /*    color: black;*/
-        /*}*/
 
         .sidenav {
             background-color: #86C3A6;
             height: 100px;
             font-size: 25px;
+            top: 0;
+            left: 0;
+            width: 100%;
         }
 
         .sidenav a{
@@ -63,16 +44,11 @@
         }
 
         .main {
-            margin-left: 300px; /* Same width as the sidebar + left position in px */
-            font-size: 28px; /* Increased text to enable scrolling */
-            padding-right: 10px;
+            position: relative;
+            margin-left: 80px;
+            margin-right: 80px;
+            font-size: 28px;
         }
-
-        @media screen and (max-height: 450px) {
-            .sidenav {padding-top: 15px;}
-            .sidenav a {font-size: 25px;}
-        }
-
 
         .dropbtn {
             background-color: #86C3A6;
@@ -116,6 +92,71 @@
             width: 200px;
         }
 
+        .column {
+            float: left;
+            width: 49%;
+            padding: 5px;
+            position: relative;
+        }
+        .column img {width: 100%}
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .tekst{
+            padding-top: 30px;
+        }
+
+        /* Hover for images */
+
+        .opis_Ohrid {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            /* Sho/hide */
+            /*visibility: none;*/
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .column:hover .opis_Ohrid {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .opis_Skopje {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            /* Sho/hide */
+            /*visibility: none;*/
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .column:hover .opis_Skopje {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        a:hover { text-decoration: none; color: darkgreen}
+
+        #izbor_from {
+            width: 50%;
+        }
+        #izbor_to {
+            width: 50%;
+        }
+
     </style>
     <script th:inline="javascript" type="text/javascript">
         function mapaSkopje()
@@ -146,7 +187,7 @@
                 " <span>Од </span>" +
                 "<select id=\"izbor_from\"> </select> <br/>" +
                 "<span>До </span> <select id=\"izbor_to\"> </select> <br/> "+
-                "<button onClick=\"routeSkopje()\">Покажи рута</button> </div>"
+                "<button style='width: 15%; height: 30px' onClick=\"routeSkopje()\">Покажи рута</button> </div>"
 
             console.log(attractionsSk)
 
@@ -237,7 +278,7 @@
                 " <span>Од </span>" +
                 "<select id=\"izbor_from\"> </select> <br/>" +
                 "<span>До </span> <select id=\"izbor_to\"> </select> <br/> "+
-                "<button onClick=\"routeOhrid()\">Покажи рута</button> </div>"
+                "<button style='width: 15%; height: 30px' onClick=\"routeOhrid()\">Покажи рута</button> </div>"
 
             var sel1 = document.getElementById("izbor_from");
             var attrs1 = [[${attractionsOhrid}]];
@@ -310,7 +351,7 @@
     <a href="/AboutUs" target="_self" class="menu">За нас</a>
     <a href="/Map" target="_self" class="menu">Мапа</a>
     <div class="dropdown menu">
-        <button class="dropbtn">Атракции</button>
+        <button class="dropbtn menu" style="font-family: 'Times New Roman'">Атракции</button>
         <div class="dropdown-content">
             <a href="/AttractionsSkopje">Скопје</a>
             <a href="/AttractionsOhrid">Охрид</a>
@@ -320,7 +361,7 @@
     <!--    <a href="AboutUs.html" target="_self">About Us</a>-->
 </div>
 <div class="main" style="position: relative">
-    <h2 style="text-align: center; padding-top: 80px" >Најпопуларни атракции во <span id="imeGrad"></span></h2>
+    <h2 style="text-align: center; padding-top: 40px" >Најпопуларни атракции во <span id="imeGrad"></span></h2>
     <div style=" margin: 0; position: absolute; padding-top: 0px; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
         <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
         <input type="button" value="Скопје" onclick="mapaSkopje()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none; ">

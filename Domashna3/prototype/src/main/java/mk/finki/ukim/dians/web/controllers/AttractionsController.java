@@ -22,14 +22,6 @@ public class AttractionsController {
         this.attractionService = attractionService;
     }
 
-    @GetMapping("/Attractions")
-    public String getAttractionsPage(Model model){
-//        List<Attraction> attractionsSkopje=this.attractionService.findAllSkopje();
-//        List<Attraction> attractionsOhrid=this.attractionService.findAllOhrid();
-//        model.addAttribute("attractionsSkopje", attractionsSkopje);
-//        model.addAttribute("attractionsOhrid", attractionsOhrid);
-        return "Attractions.html";
-    }
 
     @GetMapping("/AttractionsSkopje")
     public String getAttractionsSkopje(Model model){
