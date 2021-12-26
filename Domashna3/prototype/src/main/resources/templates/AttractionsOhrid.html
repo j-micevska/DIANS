@@ -103,7 +103,31 @@
             list-style-type: none;
         }
     </style>
+    <script type="text/javascript">(function(d, t, e, m){
 
+        // Async Rating-Widget initialization.
+        window.RW_Async_Init = function(){
+
+            RW.init({
+                huid: "481102",
+                uid: "60f8b7aff49ffae227d7e520e5edf299",
+                options: { "style": "oxygen" }
+            });
+            RW.render();
+        };
+        // Append Rating-Widget JavaScript library.
+        var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+            l = d.location, ck = "Y" + t.getFullYear() +
+            "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+            f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+            a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+        if (d.getElementById(id)) return;
+        rw = d.createElement(e);
+        rw.id = id; rw.async = true; rw.type = "text/javascript";
+        rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+        s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));
+    </script>
 </head>
 <body>
 <div class="sidenav">
@@ -121,7 +145,7 @@
     <!--    <a href="AboutUs.html" target="_self">About Us</a>-->
 </div>
 <div class="main">
-    <h2 style="text-align: center; padding-top: 80px">Листа на најпопуларни атракции во Охрид <span id="imeGrad"></span></h2>
+    <h2 style="text-align: center; padding-top: 40px">Листа на најпопуларни атракции во Охрид <span id="imeGrad"></span></h2>
 
 
     <div id="lista_atr" class="row">
@@ -144,6 +168,7 @@
                                 <img style='width: 200px; height: 200px;' th:src="${attraction.image}">
                             </th:block>
                             </br></br>
+                            <div class="rw-ui-container" th:data-title="${attraction.name}"></div>
                         </li>
                     </tr>
                 </th:block>
@@ -158,6 +183,7 @@
                                 <img style='width: 200px; height: 200px;' th:src="${attraction.image}">
                             </th:block>
                             </br></br>
+                            <div class="rw-ui-container" th:data-title="${attraction.name}"></div>
                         </li>
                     </tr>
                 </th:block>
