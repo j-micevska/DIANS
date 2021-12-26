@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/Map")
+@RequestMapping
 public class MapController {
 
     final AttractionService attractionService;
@@ -19,12 +19,25 @@ public class MapController {
         this.attractionService = attractionService;
     }
 
-    @GetMapping
-    public String getMap(Model model){
-        List<Attraction> attractionsSkopje=this.attractionService.findAllSkopje();
-        List<Attraction> attractionsOhrid=this.attractionService.findAllOhrid();
-        model.addAttribute("attractionsSkopje", attractionsSkopje);
-        model.addAttribute("attractionsOhrid", attractionsOhrid);
-        return "Map";
+//    @GetMapping
+//    public String getMap(Model model){
+//        List<Attraction> attractionsSkopje=this.attractionService.findAllSkopje();
+//        List<Attraction> attractionsOhrid=this.attractionService.findAllOhrid();
+//        model.addAttribute("attractionsSkopje", attractionsSkopje);
+//        model.addAttribute("attractionsOhrid", attractionsOhrid);
+//        return "Map";
+
+        @GetMapping("/MapSkopje")
+        public String getMapSkopje(Model model) {
+            List<Attraction> attractionsSkopje = this.attractionService.findAllSkopje();
+            model.addAttribute("attractionsSkopje", attractionsSkopje);
+            return "MapSkopje.html";
+        }
+
+        @GetMapping("/MapOhrid")
+        public String getMapOhrid(Model model){
+            List<Attraction> attractionsOhrid=this.attractionService.findAllOhrid();
+            model.addAttribute("attractionsOhrid", attractionsOhrid);
+            return "MapOhrid.html";
     }
 }

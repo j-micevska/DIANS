@@ -162,7 +162,7 @@
         function mapaSkopje()
         {
 
-            document.getElementById("imeGrad").innerHTML="Скопје";
+            //document.getElementById("imeGrad").innerHTML="Скопје";
             // map=document.getElementById("map");
             //map.innerHTML="<iframe width=\"1200\" height=\"350\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://www.openstreetmap.org/export/embed.html?bbox=21.049804687500004%2C41.8429275884508%2C21.692504882812504%2C42.177614054538324&amp;layer=mapnik&amp;marker=42.01049094173177%2C21.37115478515625\" style=\"border: 1px solid black\"></iframe><br/><small><a href=\"https://www.openstreetmap.org/?mlat=42.0105&amp;mlon=21.3712#map=11/42.0105/21.3712\">View Larger Map</a></small>";
             var container = L.DomUtil.get('map');
@@ -253,7 +253,7 @@
         }
         function mapaOhrid()
         {
-            document.getElementById("imeGrad").innerHTML="Охрид";
+            //document.getElementById("imeGrad").innerHTML="Охрид";
             // map=document.getElementById("map");
             var container = L.DomUtil.get('map');
             if(container != null){
@@ -345,11 +345,18 @@
         }
     </script>
 </head>
-<body>
+<body onload="mapaOhrid()">
 <div class="sidenav">
     <a href="/Homepage" target="_self" class="menu">Дома</a>
     <a href="/AboutUs" target="_self" class="menu">За нас</a>
-    <a href="/Map" target="_self" class="menu">Мапа</a>
+    <!--  <a href="/Map" target="_self" class="menu">Мапа</a>-->
+    <div class="dropdown menu">
+        <button class="dropbtn menu" style="font-family: 'Times New Roman'">Мапа</button>
+        <div class="dropdown-content">
+            <a href="/MapSkopje">Скопје</a>
+            <a href="/MapOhrid">Охрид</a>
+        </div>
+    </div>
     <div class="dropdown menu">
         <button class="dropbtn menu" style="font-family: 'Times New Roman'">Атракции</button>
         <div class="dropdown-content">
@@ -361,30 +368,16 @@
     <!--    <a href="AboutUs.html" target="_self">About Us</a>-->
 </div>
 <div class="main" style="position: relative">
-    <h2 style="text-align: center; padding-top: 40px" >Најпопуларни атракции во <span id="imeGrad"></span></h2>
+    <h2 style="text-align: center; padding-top: 40px" >Најпопуларни атракции во Охрид</span></h2>
     <div style=" margin: 0; position: absolute; padding-top: 0px; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
         <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
-        <input type="button" value="Скопје" onclick="mapaSkopje()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none; ">
-        <input type="button" value="Охрид" onclick="mapaOhrid()" style="background-color: #86C3A6; width: 150px; height: 30px; border-radius: 5px; margin: 10px; font-size: 18px; border:none; ">
     </div>
     <div id="proben" style="padding-top: 30px; text-align: center">
     </div>
-<br>
+    <br>
 
     <div id="map" style="width:100%;height:400px;"></div>
     <br/>
-    <!--    <div>-->
-    <!--        <span>From</span>-->
-    <!--        <select id="izbor_from">-->
-    <!--        </select>-->
-    <!--        <br/>-->
-    <!--        <span>To</span>-->
-    <!--        <select id="izbor_to">-->
-    <!--        </select>-->
-    <!--        <br/>-->
-    <!--        <button onclick="mapaOhrid()">Покажи рута</button>-->
-    <!--    </div>-->
-
 
 </div>
 
