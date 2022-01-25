@@ -27,28 +27,32 @@ public class AttractionsController {
     public String getAttractionsSkopje(Model model){
         List<Attraction> attractionsSkopje=this.attractionService.findAllSkopje();
         model.addAttribute("attractionsSkopje", attractionsSkopje);
-        return "AttractionsSkopje.html";
+        model.addAttribute("bodyContent", "AttractionsSkopje");
+        return "master-template";
     }
 
     @GetMapping("/AttractionsOhrid")
     public String getAttractionsOhrid(Model model){
         List<Attraction> attractionsOhrid=this.attractionService.findAllOhrid();
         model.addAttribute("attractionsOhrid", attractionsOhrid);
-        return "AttractionsOhrid.html";
+        model.addAttribute("bodyContent", "AttractionsOhrid");
+        return "master-template";
     }
 
     @PostMapping("/AttractionsSkopje")
     public String attractionsSearchSkopje(Model model,@RequestParam(value = "searchSkopje",required = false) String searchSkopje){
         List<Attraction> foundSkopje= this.attractionService.findByNameSkopje(searchSkopje);
         model.addAttribute("foundSkopje", this.attractionService.findByNameSkopje(searchSkopje));
-        return "AttractionsSkopje.html";
+        model.addAttribute("bodyContent", "AttractionsSkopje");
+        return "master-template";
     }
 
     @PostMapping("/AttractionsOhrid")
     public String attractionsSearchOhrid(Model model,@RequestParam(value = "searchOhrid",required = false) String searchOhrid){
         List<Attraction> foundOhrid= this.attractionService.findByNameOhrid(searchOhrid);
         model.addAttribute("foundOhrid", this.attractionService.findByNameOhrid(searchOhrid));
-        return "AttractionsOhrid.html";
+        model.addAttribute("bodyContent", "AttractionsOhrid");
+        return "master-template";
     }
 
 }

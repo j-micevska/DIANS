@@ -1,6 +1,7 @@
 package mk.finki.ukim.dians.web.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     @GetMapping
-    public String getHomePage(){
-        return "Homepage";
+    public String getHomePage(Model model){
+        model.addAttribute("bodyContent", "Homepage");
+        return "master-template";
     }
 
 }
