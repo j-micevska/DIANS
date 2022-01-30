@@ -42,6 +42,7 @@
             border-style: solid;
             border-color: #72AC9F;
             height: fit-content;
+            width: 1300px;
             margin: 20px;
             padding: 10px;
             background-color:white;
@@ -50,7 +51,6 @@
     </style>
     <script type="text/javascript">(function(d, t, e, m){
 
-        // Async Rating-Widget initialization.
         window.RW_Async_Init = function(){
 
             RW.init({
@@ -60,7 +60,6 @@
             });
             RW.render();
         };
-        // Append Rating-Widget JavaScript library.
         var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
             l = d.location, ck = "Y" + t.getFullYear() +
             "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
@@ -84,9 +83,9 @@
 
             <div style="margin-left: 100px" id="search">
                 <form action="" method="post">
-                    <label>Search: </label>
-                    <input style="width: 30%; height: 30px" type="text" th:name="searchSkopje">
-                    <button style="height: 30px" type="submit">Search</button>
+                    <label>Пребарај: </label>
+                    <input style="width: 300px; height: 30px" type="text" th:name="searchSkopje">
+                    <button style="height: 30px" type="submit">Пребарај</button>
                 </form>
             </div>
 

@@ -19,30 +19,6 @@
             font-family: "Times New Roman";
         }
 
-        /*.sidenav {*/
-        /*    background-color: #86C3A6;*/
-        /*    height: 100px;*/
-        /*    font-size: 25px;*/
-        /*    top: 0;*/
-        /*    left: 0;*/
-        /*    width: 100%;*/
-        /*}*/
-
-        /*.sidenav a {*/
-        /*    float: left;*/
-        /*    font-size: 25px;*/
-        /*    color: white;*/
-        /*    text-align: center;*/
-        /*    padding: 14px 16px;*/
-        /*    text-decoration: none;*/
-        /*    margin: 25px;*/
-        /*    !*position: relative;*!*/
-        /*}*/
-
-        /*.sidenav a:hover {*/
-        /*    color: #487D91;*/
-        /*}*/
-
         .main {
             position: relative;
             margin-left: 80px;
@@ -58,8 +34,6 @@
             width: 80px;
         }
 
-        /*.dropdown-content a:hover {background-color: #ddd;}*/
-
         .dropdown:hover .dropdown-content {
             display: block;
         }
@@ -68,66 +42,21 @@
             background-color: #86C3A6;
         }
 
-        /*.menu {*/
-        /*    width: 200px;*/
-        /*}*/
-
-        /*.column {*/
-        /*    float: left;*/
-        /*    width: 49%;*/
-        /*    padding: 5px;*/
-        /*    position: relative;*/
-        /*}*/
-
         .column img {
             width: 100%
         }
 
-        /* Clearfix (clear floats) */
         .row::after {
             content: "";
             clear: both;
             display: table;
         }
 
-        /*.tekst {*/
-        /*    padding-top: 30px;*/
-        /*}*/
-
-        /*!* Hover for images *!*/
-
-        /*.opis_Ohrid {*/
-        /*    box-sizing: border-box;*/
-        /*    width: 100%;*/
-        /*    padding: 10px;*/
-        /*    position: absolute;*/
-        /*    bottom: 0;*/
-        /*    background-color: rgba(0, 0, 0, 0.5);*/
-        /*    color: white;*/
-        /*    !* Sho/hide *!*/
-        /*    !*visibility: none;*!*/
-        /*    opacity: 0;*/
-        /*    transition: opacity 0.3s;*/
-        /*}*/
 
         .column:hover .opis_Ohrid {
             visibility: visible;
             opacity: 1;
         }
-
-        /*.opis_Skopje {*/
-        /*    box-sizing: border-box;*/
-        /*    width: 100%;*/
-        /*    padding: 10px;*/
-        /*    position: absolute;*/
-        /*    bottom: 0;*/
-        /*    background-color: rgba(0, 0, 0, 0.5);*/
-        /*    color: white;*/
-        /*    !* Sho/hide *!*/
-        /*    !*visibility: none;*!*/
-        /*    opacity: 0;*/
-        /*    transition: opacity 0.3s;*/
-        /*}*/
 
         .column:hover .opis_Skopje {
             visibility: visible;
@@ -151,9 +80,6 @@
     <script th:inline="javascript" type="text/javascript">
         function mapaSkopje() {
 
-            //document.getElementById("imeGrad").innerHTML="Скопје";
-            // map=document.getElementById("map");
-            //map.innerHTML="<iframe width=\"1200\" height=\"350\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://www.openstreetmap.org/export/embed.html?bbox=21.049804687500004%2C41.8429275884508%2C21.692504882812504%2C42.177614054538324&amp;layer=mapnik&amp;marker=42.01049094173177%2C21.37115478515625\" style=\"border: 1px solid black\"></iframe><br/><small><a href=\"https://www.openstreetmap.org/?mlat=42.0105&amp;mlon=21.3712#map=11/42.0105/21.3712\">View Larger Map</a></small>";
             var container = L.DomUtil.get('map');
             if (container != null) {
                 container._leaflet_id = null;
