@@ -82,8 +82,6 @@
             width: 80px;
         }
 
-        /*.dropdown-content a:hover {background-color: #ddd;}*/
-
         .dropdown:hover .dropdown-content {display: block;}
 
         .dropdown:hover .dropbtn {background-color: #86C3A6;}
@@ -91,59 +89,13 @@
         .menu{
             width: 200px;
         }
-
-        /*.column {*/
-        /*    float: left;*/
-        /*    width: 49%;*/
-        /*    padding: 5px;*/
-        /*    position: relative;*/
-        /*}*/
         .column img {width: 100%}
-
-        /* Clearfix (clear floats) */
-        /*.row::after {*/
-        /*    content: "";*/
-        /*    clear: both;*/
-        /*    display: table;*/
-        /*}*/
-        /*.tekst{*/
-        /*    padding-top: 30px;*/
-        /*}*/
-
-        /* Hover for images */
-
-        /*.opis_Ohrid {*/
-        /*    box-sizing: border-box;*/
-        /*    width: 100%;*/
-        /*    padding: 10px;*/
-        /*    position: absolute;*/
-        /*    bottom: 0;*/
-        /*    background-color: rgba(0, 0, 0, 0.5);*/
-        /*    color: white;*/
-        /*    !* Sho/hide *!*/
-        /*    !*visibility: none;*!*/
-        /*    opacity: 0;*/
-        /*    transition: opacity 0.3s;*/
-        /*}*/
 
         .column:hover .opis_Ohrid {
             visibility: visible;
             opacity: 1;
         }
 
-        /*.opis_Skopje {*/
-        /*    box-sizing: border-box;*/
-        /*    width: 100%;*/
-        /*    padding: 10px;*/
-        /*    position: absolute;*/
-        /*    bottom: 0;*/
-        /*    background-color: rgba(0, 0, 0, 0.5);*/
-        /*    color: white;*/
-        /*    !* Sho/hide *!*/
-        /*    !*visibility: none;*!*/
-        /*    opacity: 0;*/
-        /*    transition: opacity 0.3s;*/
-        /*}*/
         .column:hover .opis_Skopje {
             visibility: visible;
             opacity: 1;
@@ -165,13 +117,10 @@
 
         function mapaOhrid()
         {
-            //document.getElementById("imeGrad").innerHTML="Охрид";
-            // map=document.getElementById("map");
             var container = L.DomUtil.get('map');
             if(container != null){
                 container._leaflet_id = null;
             }
-
 
             var map= L.map('map').setView([41.1123, 20.8095], 10);
             console.log("map")
@@ -249,8 +198,6 @@
                 }
             }
 
-
-
             if (routingControl!=null)
             map.removeControl(routingControl);
             console.log(routingControl)
@@ -261,8 +208,6 @@
                     L.latLng(lat_to, lon_to)
                 ]
             }).addTo(map);
-
-
 
         }
     </script>

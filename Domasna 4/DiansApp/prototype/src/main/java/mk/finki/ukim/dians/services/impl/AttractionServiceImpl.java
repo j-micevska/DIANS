@@ -26,12 +26,10 @@ public class AttractionServiceImpl implements AttractionService {
         Attraction[] attractions=restTemplate.getForObject("http://localhost:9191/Attractions/Skopje",Attraction[].class);
         List<Attraction> attractionsSkopje= Arrays.asList(attractions);
         return attractionsSkopje;
-        // return attractionRepository.findAllSkopje();
 
     }
     @Override
     public List<Attraction> findAllOhrid() {
-     //   return attractionRepository.findAllOhrid();
         Attraction[] attractions=restTemplate.getForObject("http://localhost:9191/Attractions/Ohrid",Attraction[].class);
         List<Attraction> attractionsOhrid= Arrays.asList(attractions);
         return attractionsOhrid;

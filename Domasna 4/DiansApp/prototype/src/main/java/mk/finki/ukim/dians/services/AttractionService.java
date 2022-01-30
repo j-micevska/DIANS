@@ -20,12 +20,6 @@ public interface AttractionService {
     Optional<Attraction> saveSkopje(String lat, String lon, String name, String description,String review,String image);
     Optional<Attraction> saveOhrid(String lat, String lon, String name, String description,String review,String image);
 
-   // Optional<TouristAttraction> save(ProductDto productDto);
-
-   // Optional<TouristAttraction> edit(String lat, String lon, String name, String description);
-
-  //  Optional<TouristAttraction> edit(Long id, ProductDto productDto);
-
     void deleteByIdSkopje(String id);
     void deleteByIdOhrid(String id);
 }
