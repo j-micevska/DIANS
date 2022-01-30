@@ -1,0 +1,92 @@
+<style>
+    .sidenav {
+        background-color: #86C3A6;
+        height: 100px;
+        font-size: 25px;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .sidenav a{
+        float: left;
+        font-size: 25px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        margin: 25px;
+        /*position: relative;*/
+    }
+
+    .sidenav a:hover {
+        color: #487D91;
+    }
+
+    .dropbtn {
+        background-color: #86C3A6;
+        color: white;
+        padding: 16px;
+        border: none;
+        font-size: 25px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        font-size: 25px;
+        margin: 25px;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #86C3A6;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        width: 80px;
+    }
+
+    /*.dropdown-content a:hover {background-color: #ddd;}*/
+
+    .dropdown:hover .dropdown-content {display: block;}
+
+    .dropdown:hover .dropbtn {background-color: #86C3A6;}
+
+    .menu{
+        width: 200px;
+    }
+
+    a:hover { text-decoration: none; color: darkgreen}
+
+</style>
+
+<header>
+    <div class="sidenav">
+        <a href="/Homepage" target="_self" class="menu">Дома</a>
+        <a href="/AboutUs" target="_self" class="menu">За нас</a>
+        <div class="dropdown menu">
+            <button class="dropbtn menu" style="font-family: 'Times New Roman'">Мапа</button>
+            <div class="dropdown-content">
+                <a href="/Map/Skopje">Скопје</a>
+                <a href="/Map/Ohrid">Охрид</a>
+            </div>
+        </div>
+        <div class="dropdown menu">
+            <button class="dropbtn menu" style="font-family: 'Times New Roman'">Атракции</button>
+            <div class="dropdown-content">
+                <a href="/Attractions/Skopje">Скопје</a>
+                <a href="/Attractions/Ohrid">Охрид</a>
+            </div>
+        </div>
+        <img src="https://content.screencast.com/users/snestoroska/folders/Default/media/0df6b973-054c-4eab-ad53-2c419a74b030/logo-no%20background.png" alt="лого" width="90px" height="90px" style="margin: 10px; padding-right: 30px; float: right">
+    </div>
+</header>

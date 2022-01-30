@@ -1,0 +1,160 @@
+<html xmlns:th="http://www.w3.org/1999/html" lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <title>Атракции - What To Visit MK</title>
+    <style>
+        body{
+            background-color: beige;
+            font-family: "Times New Roman";
+        }
+
+        /*.sidenav {*/
+        /*    background-color: #86C3A6;*/
+        /*    height: 100px;*/
+        /*    font-size: 25px;*/
+        /*    top: 0;*/
+        /*    left: 0;*/
+        /*    width: 100%;*/
+        /*}*/
+
+        /*.sidenav a{*/
+        /*    float: left;*/
+        /*    font-size: 25px;*/
+        /*    color: white;*/
+        /*    text-align: center;*/
+        /*    padding: 14px 16px;*/
+        /*    text-decoration: none;*/
+        /*    margin: 25px;*/
+        /*    !*position: relative;*!*/
+        /*}*/
+
+        /*.sidenav a:hover {*/
+        /*    color: #487D91;*/
+        /*}*/
+
+        .main {
+            position: relative;
+            margin-left: 80px;
+            margin-right: 80px;
+            font-size: 28px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            width: 80px;
+        }
+
+        /*.dropdown-content a:hover {background-color: #ddd;}*/
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        .dropdown:hover .dropbtn {background-color: #86C3A6;}
+
+        .menu{
+            width: 200px;
+        }
+
+        a:hover { text-decoration: none; color: darkgreen}
+
+        #lista_atr{
+            font-size: 14px;
+            font-family: Arial;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .zapis{
+            border-radius: 5px;
+            border-style: solid;
+            border-color: #72AC9F;
+            height: fit-content;
+            margin: 20px;
+            padding: 10px;
+            background-color:white;
+            list-style-type: none;
+        }
+    </style>
+    <script type="text/javascript">(function(d, t, e, m){
+
+        // Async Rating-Widget initialization.
+        window.RW_Async_Init = function(){
+
+            RW.init({
+                huid: "481102",
+                uid: "60f8b7aff49ffae227d7e520e5edf299",
+                options: { "style": "oxygen" }
+            });
+            RW.render();
+        };
+        // Append Rating-Widget JavaScript library.
+        var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+            l = d.location, ck = "Y" + t.getFullYear() +
+            "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+            f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+            a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+        if (d.getElementById(id)) return;
+        rw = d.createElement(e);
+        rw.id = id; rw.async = true; rw.type = "text/javascript";
+        rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+        s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));
+    </script>
+</head>
+<body>
+<div class="main">
+    <h2 style="text-align: center; padding-top: 40px">Листа на најпопуларни атракции во Охрид <span id="imeGrad"></span></h2>
+
+
+    <div id="lista_atr" class="row">
+        <div class="column">
+
+            <div style="margin-left: 100px" id="search">
+                <form action="" method="post">
+                    <label>Search: </label>
+                    <input style="width: 30%; height: 30px" type="text" th:name="searchOhrid">
+                    <button style="height: 30px" type="submit">Search</button>
+                </form>
+            </div>
+
+            <ul id="atr">
+                <th:block>
+                    <tr th:each="attraction : ${attractionsOhrid}">
+                        <li class='zapis'><strong th:text="${attraction.name}"></strong></br></br>
+                            <p th:text="${attraction.description}"></p>
+                            <th:block th:if="${attraction.image!=']'}">
+                                <img style='width: 200px; height: 200px;' th:src="${attraction.image}">
+                            </th:block>
+                            </br></br>
+                            <div class="rw-ui-container" th:data-title="${attraction.name}"></div>
+                        </li>
+                    </tr>
+                </th:block>
+            </ul>
+
+            <div id="found">
+                <th:block th:if="${foundOhrid!=null}">
+                    <tr th:each="attraction : ${foundOhrid}">
+                        <li class='zapis'><strong th:text="${attraction.name}"></strong></br></br>
+                            <p th:text="${attraction.description}"></p>
+                            <th:block th:if="${attraction.image!=']'}">
+                                <img style='width: 200px; height: 200px;' th:src="${attraction.image}">
+                            </th:block>
+                            </br></br>
+                            <div class="rw-ui-container" th:data-title="${attraction.name}"></div>
+                        </li>
+                    </tr>
+                </th:block>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

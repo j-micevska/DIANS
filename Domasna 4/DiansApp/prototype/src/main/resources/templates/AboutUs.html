@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Дома - What To Visit MK</title>
+    <style>
+        body{
+            background-color: beige;
+            font-family: "Times New Roman";
+        }
+
+        /*.sidenav {*/
+        /*    background-color: #86C3A6;*/
+        /*    height: 100px;*/
+        /*    font-size: 25px;*/
+        /*    top: 0;*/
+        /*    left: 0;*/
+        /*    width: 100%;*/
+        /*}*/
+
+        /*.sidenav a{*/
+        /*    float: left;*/
+        /*    font-size: 25px;*/
+        /*    color: white;*/
+        /*    text-align: center;*/
+        /*    padding: 14px 16px;*/
+        /*    text-decoration: none;*/
+        /*    margin: 25px;*/
+        /*    !*position: relative;*!*/
+        /*}*/
+
+        /*.sidenav a:hover {*/
+        /*    color: #487D91;*/
+        /*}*/
+
+        .main {
+            position: relative;
+            margin-left: 80px;
+            margin-right: 80px;
+            font-size: 28px;
+        }
+
+        /*.dropbtn {*/
+        /*    background-color: #86C3A6;*/
+        /*    color: white;*/
+        /*    padding: 16px;*/
+        /*    border: none;*/
+        /*    font-size: 25px;*/
+        /*}*/
+
+        /*.dropdown {*/
+        /*    position: relative;*/
+        /*    display: inline-block;*/
+        /*    font-size: 25px;*/
+        /*    margin: 25px;*/
+        /*}*/
+
+        /*.dropdown-content {*/
+        /*    display: none;*/
+        /*    position: absolute;*/
+        /*    background-color: #86C3A6;*/
+        /*    min-width: 160px;*/
+        /*    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+        /*    z-index: 1;*/
+        /*}*/
+
+        /*.dropdown-content a {*/
+        /*    color: white;*/
+        /*    padding: 12px 16px;*/
+        /*    text-decoration: none;*/
+        /*    display: block;*/
+        /*    width: 80px;*/
+        /*}*/
+
+        /*!*.dropdown-content a:hover {background-color: #ddd;}*!*/
+
+        /*.dropdown:hover .dropdown-content {display: block;}*/
+
+        /*.dropdown:hover .dropbtn {background-color: #86C3A6;}*/
+
+        /*.menu{*/
+        /*    width: 200px;*/
+        /*}*/
+
+        /*a:hover { text-decoration: none; color: darkgreen}*/
+    </style>
+
+    <script type="text/javascript">
+        function Send()
+        {
+            ime=document.getElementById("name");
+            prezime=document.getElementById("surname");
+            komentar=document.getElementById("comment");
+            mail=document.getElementById("email");
+            if(ime.value.length>0 && prezime.value.length>0 && komentar.value.length>0 && mail.value.length>0)
+            {
+                alert("Вашиот коментар е испратен. Ви Благодариме!");
+                ime.value="";
+                prezime.value="";
+                komentar.value="";
+                mail.value="";
+            }
+            else
+            {
+                alert("Ве молиме внесете ги сите податоци за да можете да испратите коментар");
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="main">
+    <div>
+    <h2 style="text-align: center; padding-top: 40px">За нас</h2>
+    <h4 style="padding-left: 100px"> Нашата идеја </h4>
+    <p> Нашата идеја се разви со големата љубов кон убавините на нашата прекрасна Македонија.</p>
+    <p> Сакавме да го споделиме нашето знаење, и да ги отвориме вашите очи кон места кои ќе ве остават без зборови. </p>
+    <p> Моментално Вие сте дел од почетокот на нашата приказна. Се надеваме дека нашиот проект ќе се развие на поголема територија</p>
+    <p> Ви благодариме што ја посетивте нашата страна! За било какви прашања или информации, можете да ја искористите формата долу.</p>
+    </div>
+    <div style="margin-left: 150px"><input type="text" id="name" style="width: 40%; margin: 10px; height: 30px; border: none" placeholder="Име">
+         <input type="text" id="surname" style="width: 40%; margin: 10px; height: 30px; border: none" placeholder="Презиме">
+    </div>
+    <div style="margin-left: 150px"><textarea id="comment" style="width: 980px; margin: 10px; border: none" placeholder="Коментар..." rows="4"></textarea></div>
+    <div style="margin-left: 150px"><input type="text" id="email" style="width: 870px; margin: 10px; height: 30px; border: none" placeholder="example@email.com">
+         <input type="button" value="Испрати!" onclick="Send()" style="background-color: #86C3A6; border-radius: 5px; border:none; width: 100px; height: 30px">
+    </div>
+</div>
+</body>
+</html>

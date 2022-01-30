@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Дома - What To Visit MK</title>
+    <style>
+        body{
+            background-color: beige;
+            font-family: "Times New Roman";
+        }
+
+        /*.sidenav {*/
+        /*    background-color: #86C3A6;*/
+        /*    height: 100px;*/
+        /*    font-size: 25px;*/
+        /*    top: 0;*/
+        /*    left: 0;*/
+        /*    width: 100%;*/
+        /*}*/
+
+        /*.sidenav a{*/
+        /*    float: left;*/
+        /*    font-size: 25px;*/
+        /*    color: white;*/
+        /*    text-align: center;*/
+        /*    padding: 14px 16px;*/
+        /*    text-decoration: none;*/
+        /*    margin: 25px;*/
+        /*    !*position: relative;*!*/
+        /*}*/
+
+        /*.sidenav a:hover {*/
+        /*    color: #487D91;*/
+        /*}*/
+
+        .main {
+            position: relative;
+            margin-left: 80px;
+            margin-right: 80px;
+            font-size: 28px;
+        }
+
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            width: 80px;
+        }
+
+        /*.dropdown-content a:hover {background-color: #ddd;}*/
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        .dropdown:hover .dropbtn {background-color: #86C3A6;}
+
+        .menu{
+            width: 200px;
+        }
+
+        .column {
+            float: left;
+            width: 49%;
+            padding: 5px;
+            position: relative;
+        }
+        .column img {width: 100%}
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .tekst{
+            padding-top: 30px;
+        }
+
+        /* Hover for images */
+
+        .opis_Ohrid {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            /* Sho/hide */
+            /*visibility: none;*/
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .column:hover .opis_Ohrid {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .opis_Skopje {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            /* Sho/hide */
+            /*visibility: none;*/
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .column:hover .opis_Skopje {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        a:hover { text-decoration: none; color: darkgreen}
+
+
+    </style>
+</head>
+<body>
+<div class="main">
+    <div>
+        <h2 style="text-align: center; padding-top: 40px"> Добредојдовте! </h2>
+        <p style="text-align: justify"> Доколку планирате авантура во Охрид или Скопје, Whattovisit.mk е тука да ви помогне! Изберете кој град сакате да го посетите и разгледајте ги најпопуларните атракции кои вредат да се посетат. Откако ќе најдете нешто што ви фаќа око, искористете ја мапата и навигациската алатка да видете како да стигнете таму и започнете ја вашата авантура! <br>
+            Започнете со разгледување на мапата на <a href="Map/Skopje" target="_self" style="text-decoration: none"> Скопје </a> или <a href="Map/Ohrid" target="_self" style="text-decoration: none"> Охрид </a>
+        </p>
+    </div>
+    <div class="row">
+        <div class="column" >
+            <img src="https://cdn.getyourguide.com/img/location/5df35ecb415d0.jpeg/88.jpg" alt="Skopje" style="width:100%">
+            <a href="/Attractions/Skopje" target="_self"> <div class="opis_Skopje"> Атракции во Скопје </div></a>
+
+        </div>
+        <div class="column">
+            <img src="https://cdn.getyourguide.com/img/location/5e1713dd21336.jpeg/88.jpg" alt="Ohrid" style="width:100%">
+            <a href="/Attractions/Ohrid" target="_self"> <div class="opis_Ohrid"> Атракции во Охрид </div> </a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
